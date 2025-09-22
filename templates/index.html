@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Face Morphing App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black; /* whole background black */
+            color: rgb(212, 22, 22);            /* text color white so it's visible */
+        }
+        .img-fluid {
+            max-height: 300px; /* Limit image size for better display */
+            object-fit: contain;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+        }
+        .generated-img {
+        width: 150px;      /* fixed width */
+        height: 150px;     /* fixed height */
+        object-fit: cover; /* keeps aspect ratio but crops to fill box */
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+
+        .custom-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: black; /* black track */
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* Webkit (Chrome, Safari) track */
+        .custom-slider::-webkit-slider-runnable-track {
+            height: 10px;
+            background: black; /* make track fully black */
+            border-radius: 5px;
+        }
+
+        /* Webkit thumb */
+        .custom-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: red;
+            margin-top: -4px; /* center thumb vertically */
+            cursor: pointer;
+        }
+
+        /* Firefox */
+        .custom-slider::-moz-range-track {
+            height: 10px;
+            background: black;
+            border-radius: 5px;
+        }
+
+        .custom-slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: red;
+        }
+
+        /* IE / Edge */
+        .custom-slider::-ms-track {
+            height: 10px;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        .custom-slider::-ms-fill-lower { background: black; }
+        .custom-slider::-ms-fill-upper { background: black; }
+
+        .custom-slider::-ms-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: red;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ff0000, #ff6a00);
+            background-clip: text;              /* Standard (Firefox, may need -moz) */
+            -webkit-background-clip: text;      /* Chrome, Safari */
+            -webkit-text-fill-color: transparent;
+            color: transparent;                 /* Fallback */
+        }
+
+        h5 {
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #00ff3c, #ff6a00);
+            background-clip: text;              /* Standard (Firefox, may need -moz) */
+            -webkit-background-clip: text;      /* Chrome, Safari */
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+
+
+    </style>
+</head>
+    
+
+<body>
+<div class="container py-5">
+    <h1 class="text-center mb-4">Face Generation and Morphing Application</h1>
+    <div class="card shadow-sm p-4 mb-4">
+        <p>
+            This project generates faces using a DCGAN model and allows morphing between two faces.  
+            Based on the research paper: 
+            <a href="https://arxiv.org/pdf/1511.06434" target="_blank">Face Morphing Research</a>
+        </p>
+    </div>
+
+    <!-- Row with two cards side by side -->
+    <div class="row">
+        <!-- Left box: Face1, Face2, Morph -->
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm p-4 h-100">
+                <h4 class="mb-3 text-center">Face Generation & Morphing</h4>
+                <form method="POST" action="/" enctype="multipart/form-data">
+                    <div class="d-flex justify-content-center mb-3 gap-3">
+                        <button name="action" value="generate1" class="btn btn-primary">Generate Face 1</button>
+                        <button name="action" value="generate2" class="btn btn-primary">Generate Face 2</button>
+                        <button type="button" id="morph-btn" class="btn btn-danger">Morph (α=0.5)</button>
+                    </div>
+                    <div class="mb-3">
+                        <label for="alphaSlider" class="form-label d-flex justify-content-between align-items-center">
+                            <span>Morph Alpha</span>
+                            <span id="alphaValue" class="fw-bold text-info">0.50</span>
+                        </label>
+                        <input type="range" min="0" max="1" step="0.01" name="alpha" id="alphaSlider" value="0.5" class="form-range custom-slider flex-grow-1">  
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right box: Generate 100 images -->
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm p-4 h-100">
+                <h4 class="mb-3 text-center">Batch Generation</h4>
+                <form method="POST" action="/" enctype="multipart/form-data">
+                    <button name="action" value="generate100" class="btn btn-warning w-100">Generate 100 Face Images</button>
+                    <p class="text-center mt-2 text-muted" style="font-size: 0.9rem;">
+                        Click this button to generate a comprehensive batch of 100 unique facial images. 
+                        Each image is created using our  DC-GAN model, providing a diverse set of realistic synthetic faces 
+                        suitable for experimentation, analysis, or creative projects.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading spinner -->
+    <div id="loading" style="display: none;" class="text-center mt-3">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p>Generating 100 images, please wait...</p>
+    </div>
+
+    {% if image1 or image2 or image_interp %}
+    <div class="row mt-4 text-center">
+        <div class="col-md-4">
+            <h5>Face 1</h5>
+            {% if image1 %}
+            <img src="{{ url_for('static', filename=image1) }}?t={{ image1_ts }}" 
+                 class="generated-img" 
+                 onerror="this.style.display='none'; document.getElementById('error1').style.display='block';">
+            <p id="error1" class="error-message" style="display: none;">Failed to load Face 1</p>
+            {% else %}
+            <div class="border rounded p-5 bg-white text-muted">Not Generated</div>
+            {% endif %}
+        </div>
+    
+        <div class="col-md-4">
+            <h5>Face 2</h5>
+            {% if image2 %}
+            <img src="{{ url_for('static', filename=image2) }}?t={{ image2_ts }}" 
+                 class="generated-img" 
+                 onerror="this.style.display='none'; document.getElementById('error2').style.display='block';">
+            <p id="error2" class="error-message" style="display: none;">Failed to load Face 2</p>
+            {% else %}
+            <div class="border rounded p-5 bg-white text-muted">Not Generated</div>
+            {% endif %}
+        </div>
+    
+        <div class="col-md-4 text-center">
+            <h5>Morphed Face{% if alpha %} (α={{ alpha }}){% endif %}</h5>
+            <img id="morphed" 
+                 src="{% if image_interp %}{{ url_for('static', filename=image_interp) }}?t={{ image_interp_ts or 0 }}{% else %}/static/placeholder.png{% endif %}" 
+                 class="generated-img img-fluid rounded shadow-sm" 
+                 style="max-width: 100%; height: auto; object-fit: contain;" />
+        </div>
+    </div>
+    
+    {% else %}
+    {% endif %}
+    {% if image_urls %}
+    <div class="mt-5">
+        <h3 class="text-center">Batch Generated Images ({{ image_urls|length }})</h3>
+        <div class="row row-cols-2 row-cols-md-5 g-3 mt-3">
+            {% for img, ts in image_urls %}
+            <div class="col text-center">
+                <img src="{{ url_for('static', filename=img) }}?t={{ ts }}" class="generated-img" style="max-width: 100%; height: auto;" onerror="this.style.display='none';">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    {% endif %}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const slider = document.getElementById("alphaSlider");
+            const morphedImg = document.getElementById("morphed");
+            const alphaDisplay = document.getElementById("alphaValue");
+        
+            slider.addEventListener("input", () => {
+                let alpha = parseFloat(slider.value);
+                alphaDisplay.textContent = alpha.toFixed(2);
+        
+                fetch("/morph_ajax", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ alpha: alpha })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.filename) {
+                        morphedImg.src = `/static/${data.filename}?t=${data.ts}`;
+                    }
+                })
+                .catch(err => console.error(err));
+            });
+        });
+        </script>
+        
+
+    <script>
+        const imgEl = document.getElementById('morphed');
+        imgEl.src = `/static/${data.filename}?t=${data.ts}`;
+        const generate100Button = document.querySelector('button[value="generate100"]');
+        const loadingDiv = document.getElementById('loading');
+        generate100Button.addEventListener('click', function() {
+            loadingDiv.style.display = 'block';
+            console.log('Generate 100 clicked');
+        });
+        const batchImages = document.querySelectorAll('.row-cols-md-5 img');
+        if (batchImages.length === 0) {
+            loadingDiv.style.display = 'none';
+            console.log('No batch images to load');
+        } else {
+            let loadedCount = 0;
+            batchImages.forEach((img, index) => {
+                img.addEventListener('load', () => {
+                    loadedCount++;
+                    console.log(`Image ${index} loaded`);
+                    if (loadedCount === batchImages.length) {
+                        loadingDiv.style.display = 'none';
+                        console.log('All batch images loaded');
+                    }
+                });
+                img.addEventListener('error', () => {
+                    loadedCount++;
+                    console.log(`Image ${index} failed to load: ${img.src}`);
+                    img.style.display = 'none';
+                    if (loadedCount === batchImages.length) {
+                        loadingDiv.style.display = 'none';
+                        console.log('All batch images processed (some failed)');
+                    }
+                });
+            });
+
+
+        }
+    </script>
+
+
+<script>
+        document.getElementById("morph-btn").addEventListener("click", function () {
+        const slider = document.getElementById("alphaSlider");  // correct id
+        slider.value = 0.5;
+        document.getElementById("alphaValue").textContent = "0.50";  // correct id
+
+        fetch("/morph_ajax", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ alpha: 0.5 })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.filename) {
+                const morphedImg = document.getElementById("morphed");
+                morphedImg.src = `/static/${data.filename}?t=${data.ts}`;
+            }
+        })
+        .catch(err => console.error("Morph reset error:", err));
+    });
+
+    </script>
+    
+
+</div>
+</body>
+</html>
