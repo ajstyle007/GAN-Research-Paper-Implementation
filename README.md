@@ -2,6 +2,8 @@
 
 This project demonstrates the implementation of Generative Adversarial Networks (GANs) for human face generation and morphing. The project includes both the research-focused model training using PyTorch and a user-friendly front-end built with Flask, HTML, CSS, and JavaScript, deployed on Hugging Face Spaces.
 
+[Live Application link](https://musk12-face-generation-and-morphing-application.hf.space/) to play with model.
+
 <img width="1501" height="730" alt="frontend_app" src="https://github.com/user-attachments/assets/0a3f20ee-e0c5-4686-90bf-f897d2679b5e" />
 
 
@@ -85,6 +87,8 @@ Techniques:
 
 
 ### 🎨 Frontend Features
+
+[Live App](https://musk12-face-generation-and-morphing-application.hf.space/)
 
 The Flask-based frontend allows users to:
 - Generate Face 1 & Face 2: Create two unique synthetic faces.
