@@ -2,7 +2,7 @@
 
 This project demonstrates the implementation of Generative Adversarial Networks (GANs) for human face generation and morphing. The project includes both the research-focused model training using PyTorch and a user-friendly front-end built with Flask, HTML, CSS, and JavaScript, deployed on Hugging Face Spaces.
 
-![Uploading frontend_app.png…]()
+<img width="1501" height="730" alt="frontend_app" src="https://github.com/user-attachments/assets/0a3f20ee-e0c5-4686-90bf-f897d2679b5e" />
 
 
 #### 🚀 Project Overview
@@ -25,7 +25,7 @@ Later, the project transitioned to Deep Convolutional GANs (DCGAN, Radford et al
 
 #### PyTorch snippet:
 
-`
+```
 class Generator(nn.Module):
     def __init__(self, z_dim=100, ngf=128, nc=3):
         super().__init__()
@@ -43,7 +43,7 @@ class Generator(nn.Module):
         )
     def forward(self, z):
         return self.g_net(z)
-`
+```
 
 ##### Discriminator
 
@@ -54,7 +54,7 @@ class Generator(nn.Module):
 
 #### PyTorch snippet:
 
-`
+```
 class Discriminator(nn.Module):
     def __init__(self, nc=3, ndf=64):
         super().__init__()
@@ -67,7 +67,7 @@ class Discriminator(nn.Module):
         )
     def forward(self, img):
         return self.d_net(img).view(-1, 1)
-`
+```
 
 ### 🏋️ Training Details
 
@@ -115,27 +115,33 @@ Batch Generation Example
 ### 🔧 How to Run
 
 1. Clone the repository:
-   `
+   
+   ```
    git clone https://github.com/yourusername/face-dcgan.git](https://github.com/ajstyle007/GAN-Research-Paper-Implementation.git
    cd GAN-Research-Paper-Implementation
-   `
-2. Install dependencies:
-   `
+   ```
+   
+3. Install dependencies:
+   
+   ```
    pip install -r requirements.txt
-   `
+   ```
 
 For the training check the jupyter notebooks.
 
 ![training_progress2](https://github.com/user-attachments/assets/b3996670-4ec9-47bd-814e-85c94166aecf)
 
 4. Run Flask app:
-   `
+   
+   ```
    python app.py
-   `
-5. Open in browser:
-   `
+   ```
+   
+6. Open in browser:
+   
+   ```
    http://127.0.0.1:5000
-   `
+   ```
 
 ### 📖 References
 
