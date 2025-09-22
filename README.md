@@ -120,6 +120,7 @@ Generated Faces
 <img width="266" height="266" alt="fake_epoch_61" src="https://github.com/user-attachments/assets/e3609036-4e72-4ecb-aadf-3fde2725536c" />
 <img width="266" height="266" alt="fake_epoch_13" src="https://github.com/user-attachments/assets/fedb248f-2d86-4f5b-98c7-e4cae2680c16" />
 <img width="266" height="266" alt="fake_epoch_14" src="https://github.com/user-attachments/assets/404f0ed2-e1cf-4c1d-905d-b014aa018f02" />
+<img width="266" height="266" alt="fake_epoch_22" src="https://github.com/user-attachments/assets/d2d127fc-3982-456b-ac1d-db7f0ab8484b" />
 <img width="266" height="266" alt="fake_epoch_23" src="https://github.com/user-attachments/assets/534433b8-f215-4029-88f7-47d67fbae3c6" />
 
 
