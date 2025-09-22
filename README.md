@@ -112,6 +112,14 @@ Visualization & Logging: tqdm, torchvision, logging
 ### 📸 Sample Output
 
 Generated Faces
+
+<img width="266" height="266" alt="fake_epoch_1" src="https://github.com/user-attachments/assets/d44e3e39-ad12-48e4-8812-a718af626fb6" /> 
+<img width="266" height="266" alt="fake_epoch_4" src="https://github.com/user-attachments/assets/d7ed46c2-8f4b-416b-ba3d-93c559858bb5" />
+<img width="266" height="266" alt="fake_epoch_5" src="https://github.com/user-attachments/assets/37571bee-441f-4e65-bdfc-1c67453d7232" />
+<img width="266" height="266" alt="fake_epoch_6" src="https://github.com/user-attachments/assets/409a74cf-aeb1-40a1-a1af-7935b3902249" />
+<img width="266" height="266" alt="fake_epoch_61" src="https://github.com/user-attachments/assets/e3609036-4e72-4ecb-aadf-3fde2725536c" />
+
+
 Morphing Example
 Batch Generation Example
 
