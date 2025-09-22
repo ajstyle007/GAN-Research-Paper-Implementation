@@ -1,0 +1,24 @@
+2025-09-17 23:18:04 | INFO | Starting GAN training:
+    Epochs:          50
+    Batch size:      64
+    Learning rate:   0.0002
+    Device:          cuda
+    Beta1, Beta2:    (0.5, 0.999)
+
+2025-09-17 23:18:04 | INFO | Resuming from epoch 0
+2025-09-17 23:24:30 | INFO | Starting GAN training:
+    Epochs:          50
+    Batch size:      64
+    Learning rate:   0.0002
+    Device:          cuda
+    Beta1, Beta2:    (0.5, 0.999)
+
+2025-09-17 23:24:30 | INFO | Resuming from epoch 1
+2025-09-17 23:26:21 | INFO | Starting GAN training:
+    Epochs:          50
+    Batch size:      64
+    Learning rate:   0.0002
+    Device:          cuda
+    Beta1, Beta2:    (0.5, 0.999)
+
+2025-09-17 23:26:22 | INFO | Resuming from epoch 0

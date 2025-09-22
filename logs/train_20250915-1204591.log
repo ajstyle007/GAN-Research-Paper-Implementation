@@ -1,0 +1,37 @@
+2025-09-15 12:05:34 | INFO | Starting GAN training:
+    Epochs:          50
+    Batch size:      64
+    Learning rate:   0.0002
+    Device:          cuda
+    Beta1, Beta2:    (0.5, 0.999)
+
+2025-09-15 12:47:29 | INFO | Epoch 1: D Loss: 0.1344, G Loss: 14.8263
+2025-09-15 12:47:30 | INFO | Saved checkpoint at epoch 1 (G loss 14.826299)
+2025-09-15 13:30:16 | INFO | Epoch 2: D Loss: 0.0001, G Loss: 10.8166
+2025-09-15 13:30:17 | INFO | Saved checkpoint at epoch 2 (G loss 10.816568)
+2025-09-15 14:12:56 | INFO | Epoch 3: D Loss: 10.6594, G Loss: 5.2881
+2025-09-15 14:12:56 | INFO | Saved checkpoint at epoch 3 (G loss 5.288129)
+2025-09-15 14:55:23 | INFO | Epoch 4: D Loss: 18.4207, G Loss: 0.0000
+2025-09-15 14:55:24 | INFO | Saved checkpoint at epoch 4 (G loss 0.000000)
+2025-09-15 15:37:53 | INFO | Epoch 5: D Loss: 18.4207, G Loss: 0.0000
+2025-09-15 15:43:13 | INFO | Starting GAN training:
+    Epochs:          50
+    Batch size:      39
+    Learning rate:   0.0002
+    Device:          cuda
+    Beta1, Beta2:    (0.5, 0.999)
+
+2025-09-15 15:43:14 | INFO | Resuming from epoch 4
+2025-09-15 15:44:39 | INFO | Starting GAN training:
+    Epochs:          50
+    Batch size:      64
+    Learning rate:   0.0002
+    Device:          cuda
+    Beta1, Beta2:    (0.5, 0.999)
+
+2025-09-15 15:44:39 | INFO | Resuming from epoch 4
+2025-09-15 16:27:00 | INFO | Epoch 5: D Loss: 18.4207, G Loss: 0.0000
+2025-09-15 16:27:00 | INFO | No improvement in G loss (patience 1/5)
+2025-09-15 17:12:06 | INFO | Epoch 6: D Loss: 18.4207, G Loss: 0.0000
+2025-09-15 17:12:06 | INFO | Saved sample images for epoch 6
+2025-09-15 17:12:06 | INFO | No improvement in G loss (patience 2/5)

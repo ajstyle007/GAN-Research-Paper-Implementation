@@ -1,0 +1,48 @@
+2025-09-19 09:24:35 | INFO | Starting GAN training:
+    Epochs:          50
+    Batch size:      64
+    Learning rate:   0.0002
+    Device:          cuda
+    Beta1, Beta2:    (0.5, 0.999)
+    Checkpoints:     True
+
+2025-09-19 09:24:36 | INFO | Resuming from epoch 12
+2025-09-19 10:02:52 | INFO | Epoch 13: D Loss: 0.8249, G Loss: 2.2478
+2025-09-19 10:02:53 | INFO | Saved sample images for epoch 13
+2025-09-19 10:02:53 | INFO | Saved checkpoint at epoch 13 (G loss 0.347590)
+2025-09-19 10:41:11 | INFO | Epoch 14: D Loss: 0.6666, G Loss: 2.4359
+2025-09-19 10:41:12 | INFO | Saved sample images for epoch 14
+2025-09-19 10:41:12 | INFO | Saved checkpoint at epoch 14 (G loss 0.347590)
+2025-09-19 11:19:04 | INFO | Epoch 15: D Loss: 0.6580, G Loss: 2.5239
+2025-09-19 11:19:05 | INFO | Saved sample images for epoch 15
+2025-09-19 11:19:05 | INFO | Saved checkpoint at epoch 15 (G loss 0.347590)
+2025-09-19 11:57:07 | INFO | Epoch 16: D Loss: 0.6442, G Loss: 2.5941
+2025-09-19 11:57:07 | INFO | Saved sample images for epoch 16
+2025-09-19 11:57:08 | INFO | Saved checkpoint at epoch 16 (G loss 0.347590)
+2025-09-19 12:35:52 | INFO | Epoch 17: D Loss: 0.6448, G Loss: 2.6270
+2025-09-19 12:35:52 | INFO | Saved sample images for epoch 17
+2025-09-19 12:35:53 | INFO | Saved checkpoint at epoch 17 (G loss 0.347590)
+2025-09-19 13:14:25 | INFO | Epoch 18: D Loss: 0.6299, G Loss: 2.7163
+2025-09-19 13:14:25 | INFO | Saved sample images for epoch 18
+2025-09-19 13:14:26 | INFO | Saved checkpoint at epoch 18 (G loss 0.347590)
+2025-09-19 13:54:21 | INFO | Epoch 19: D Loss: 0.6283, G Loss: 2.7309
+2025-09-19 13:54:21 | INFO | Saved sample images for epoch 19
+2025-09-19 13:54:22 | INFO | Saved checkpoint at epoch 19 (G loss 0.347590)
+2025-09-19 14:33:32 | INFO | Epoch 20: D Loss: 0.6045, G Loss: 2.8254
+2025-09-19 14:33:32 | INFO | Saved sample images for epoch 20
+2025-09-19 14:33:33 | INFO | Saved checkpoint at epoch 20 (G loss 0.347590)
+2025-09-19 15:13:57 | INFO | Epoch 21: D Loss: 0.6128, G Loss: 2.8615
+2025-09-19 15:13:57 | INFO | Saved sample images for epoch 21
+2025-09-19 15:13:58 | INFO | Saved checkpoint at epoch 21 (G loss 0.347590)
+2025-09-19 15:53:05 | INFO | Epoch 22: D Loss: 0.6121, G Loss: 2.8626
+2025-09-19 15:53:05 | INFO | Saved sample images for epoch 22
+2025-09-19 15:53:06 | INFO | Saved checkpoint at epoch 22 (G loss 0.347590)
+2025-09-19 16:32:12 | INFO | Epoch 23: D Loss: 0.6076, G Loss: 2.9224
+2025-09-19 16:32:12 | INFO | Saved sample images for epoch 23
+2025-09-19 16:32:13 | INFO | Saved checkpoint at epoch 23 (G loss 0.347590)
+2025-09-19 17:11:32 | INFO | Epoch 24: D Loss: 0.5993, G Loss: 2.9112
+2025-09-19 17:11:32 | INFO | Saved sample images for epoch 24
+2025-09-19 17:11:32 | INFO | Saved checkpoint at epoch 24 (G loss 0.347590)
+2025-09-19 17:50:53 | INFO | Epoch 25: D Loss: 0.5882, G Loss: 3.0484
+2025-09-19 17:50:53 | INFO | Saved sample images for epoch 25
+2025-09-19 17:50:55 | INFO | Saved checkpoint at epoch 25 (G loss 0.347590)

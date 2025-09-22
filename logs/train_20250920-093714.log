@@ -1,0 +1,27 @@
+2025-09-20 09:37:14 | INFO | Starting GAN training:
+    Epochs:          50
+    Batch size:      64
+    Learning rate:   0.0002
+    Device:          cuda
+    Beta1, Beta2:    (0.5, 0.999)
+    Checkpoints:     True
+
+2025-09-20 09:37:14 | INFO | Resuming from epoch 25
+2025-09-20 10:17:55 | INFO | Epoch 26: D Loss: 0.4779, G Loss: 4.3791
+2025-09-20 10:17:55 | INFO | Saved sample images for epoch 26
+2025-09-20 10:17:57 | INFO | Saved checkpoint at epoch 26 (G loss 3.048363)
+2025-09-20 10:57:20 | INFO | Epoch 27: D Loss: 0.5711, G Loss: 3.2459
+2025-09-20 10:57:20 | INFO | Saved sample images for epoch 27
+2025-09-20 10:57:20 | INFO | Saved checkpoint at epoch 27 (G loss 3.048363)
+2025-09-20 11:36:58 | INFO | Epoch 28: D Loss: 0.5676, G Loss: 3.2220
+2025-09-20 11:36:58 | INFO | Saved sample images for epoch 28
+2025-09-20 11:36:59 | INFO | Saved checkpoint at epoch 28 (G loss 3.048363)
+2025-09-20 12:16:17 | INFO | Epoch 29: D Loss: 0.5696, G Loss: 3.1705
+2025-09-20 12:16:18 | INFO | Saved sample images for epoch 29
+2025-09-20 12:16:19 | INFO | Saved checkpoint at epoch 29 (G loss 3.048363)
+2025-09-20 12:56:41 | INFO | Epoch 30: D Loss: 0.5849, G Loss: 2.9404
+2025-09-20 12:56:41 | INFO | Saved sample images for epoch 30
+2025-09-20 12:56:42 | INFO | Saved checkpoint at epoch 30 (G loss 3.048363)
+2025-09-20 13:38:04 | INFO | Epoch 31: D Loss: 0.5681, G Loss: 3.1098
+2025-09-20 13:38:04 | INFO | Saved sample images for epoch 31
+2025-09-20 13:38:05 | INFO | Saved checkpoint at epoch 31 (G loss 3.048363)
